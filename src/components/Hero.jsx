@@ -1,85 +1,170 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaArrowDown,
+} from "react-icons/fa";
 import ParticlesBg from "./ParticlesBg";
 
 const Hero = () => {
   return (
     <motion.section
       id="home"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="relative min-h-[110vh] py-20 flex items-center bg-white overflow-hidden w-full"
+      transition={{ duration: 0.8 }}
+      className="relative min-h-screen pt-28 md:pt-20 flex items-center bg-gradient-to-b from-white via-purple-50 to-white overflow-hidden"
     >
-      {/* 🔥 Particles (FIXED) */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+      {/* PARTICLES */}
+      <div className="absolute inset-0 opacity-40 md:opacity-100 pointer-events-none">
         <ParticlesBg />
       </div>
 
-      {/* CONTENT */}
-      <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between relative z-10 gap-10 px-4 sm:px-6">
-        
-        {/* LEFT TEXT */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-            Hi, I'm <span className="text-purple-600">Sunita Jaiswal</span>
-          </h1>
+      {/* MAIN CONTENT */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full relative z-10">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-16">
 
-          <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold text-black h-[40px]">
-            <TypeAnimation
-              sequence={[
-                "Full Stack Developer",
-                2000,
-                "Frontend Developer",
-                2000,
-                "React Developer",
-                2000,
-              ]}
-              speed={50}
-              repeat={Infinity}
-            />
-          </h2>
+          {/* LEFT CONTENT */}
+          <div className="w-full md:w-1/2 text-center md:text-left">
 
-          <p className="mt-5 text-black font-medium text-base sm:text-lg max-w-xl mx-auto md:mx-0">
-            I build modern, responsive and scalable web applications using the
-            latest technologies.
-          </p>
-
-          {/* BUTTONS */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition w-full sm:w-auto text-center"
+            {/* NAME */}
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900"
             >
-              View Projects
-            </a>
+              Hi, I'm{" "}
+              <span className="text-purple-600">
+                Sunita Jaiswal
+              </span>
+            </motion.h1>
 
-            <a
-              href="#contact"
-              className="px-6 py-3 border border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition w-full sm:w-auto text-center"
+            {/* TYPING TEXT */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-5 text-2xl md:text-3xl font-bold text-gray-800 h-[50px]"
             >
-              Contact Me
-            </a>
+              <TypeAnimation
+                sequence={[
+                  "Full Stack Developer",
+                  2000,
+                  "Frontend Developer",
+                  2000,
+                  "React Developer",
+                  2000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+              />
+            </motion.div>
 
+            {/* DESCRIPTION */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-6 text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto md:mx-0"
+            >
+              Creating modern and responsive web applications
+              with clean UI and smooth user experience.
+            </motion.p>
+
+            {/* BUTTON */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mt-8 flex justify-center md:justify-start"
+            >
+              <a
+                href="#projects"
+                className="px-8 py-3 rounded-full bg-purple-600 text-white font-semibold shadow-lg hover:bg-purple-700 hover:scale-105 transition duration-300 text-center"
+              >
+                View Projects
+              </a>
+            </motion.div>
+
+            {/* SOCIAL ICONS */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="mt-8 flex items-center gap-5 justify-center md:justify-start"
+            >
+
+              {/* GITHUB */}
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-2xl text-gray-700 hover:text-purple-600 hover:-translate-y-1 transition duration-300"
+              >
+                <FaGithub />
+              </a>
+
+              {/* LINKEDIN */}
+              <a
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-2xl text-gray-700 hover:text-blue-600 hover:-translate-y-1 transition duration-300"
+              >
+                <FaLinkedin />
+              </a>
+
+              {/* INSTAGRAM */}
+              <a
+                href="https://instagram.com/sumitajais_45905"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-2xl text-gray-700 hover:text-pink-500 hover:-translate-y-1 transition duration-300"
+              >
+                <FaInstagram />
+              </a>
+
+            </motion.div>
           </div>
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="w-full md:w-1/2 flex justify-center relative"
+          >
+
+            {/* BACKGROUND GLOW */}
+            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+            {/* IMAGE */}
+            <img
+              src="/s.jpeg"
+              alt="Sunita"
+              className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[370px] md:h-[370px] rounded-full object-cover border-4 border-purple-500 shadow-2xl hover:scale-105 transition duration-500"
+            />
+          </motion.div>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0 relative">
-          
-          {/* Glow Effect */}
-          <div className="absolute w-60 sm:w-80 h-60 sm:h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
-
-          {/* IMAGE */}
-          <img
-            src="/s.jpeg"
-            alt="profile"
-            className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover rounded-full border-4 border-purple-500 shadow-xl relative hover:scale-105 transition duration-300"
-          />
-        </div>
-
+        {/* SCROLL DOWN */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="hidden md:flex justify-center mt-16"
+        >
+          <a
+            href="#about"
+            className="animate-bounce text-purple-600 text-3xl"
+          >
+            <FaArrowDown />
+          </a>
+        </motion.div>
       </div>
     </motion.section>
   );

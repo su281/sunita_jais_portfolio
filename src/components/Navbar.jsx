@@ -58,17 +58,17 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full max-w-[100vw] overflow-x-hidden z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm">
-      
-      {/* FIXED CONTAINER */}
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-4">
-        
-        {/* NAME */}
+
+      {/* CONTAINER */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-4">
+
+        {/* LOGO */}
         <h1 className="text-xl font-bold text-gray-900 tracking-wide">
           sunita
         </h1>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 text-black font-bold">
+        <div className="hidden md:flex items-center gap-8 text-black font-bold mr-6">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -85,7 +85,7 @@ const Navbar = () => {
                 {item.name}
               </span>
 
-              {/* underline */}
+              {/* Underline */}
               <span
                 className={`absolute left-0 -bottom-1 h-[2px] bg-purple-600 transition-all duration-300 ${
                   activeSection === item.id ? "w-full" : "w-0"
@@ -95,7 +95,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Button */}
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-2xl text-gray-800"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -104,7 +104,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* ✅ MOBILE MENU FIX */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden w-full max-w-[100vw] overflow-hidden flex flex-col items-center gap-6 bg-white py-6 border-t border-gray-200 shadow-md">
           {navItems.map((item) => (

@@ -5,7 +5,6 @@ import { FaGraduationCap } from "react-icons/fa";
 // Images
 import jssImg from "../assets/jss.jpeg";
 import kmggpImg from "../assets/kmggp.jpeg";
-import sbImg from "../assets/sb.jpeg";
 
 const Education = () => {
   const educationData = [
@@ -23,13 +22,6 @@ const Education = () => {
       desc: "Completed Diploma in CSE with strong foundation in programming, DBMS, networking and software development.",
       img: kmggpImg,
     },
-    {
-      degree: "Secondary (10th)",
-      institute: "Subedar Memorial I.C., Asanahara Chhapia, Gonda",
-      year: "2019 - 2021",
-      desc: "Completed secondary education with strong foundation in Science and Mathematics.",
-      img: sbImg,
-    },
   ];
 
   return (
@@ -46,7 +38,7 @@ const Education = () => {
         Education
       </motion.h1>
 
-      {/* ✅ Quote Added */}
+      {/* Quote */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -56,10 +48,10 @@ const Education = () => {
         “Education is not the learning of facts, but the training of the mind to think.”
       </motion.p>
 
-      {/* Timeline Line */}
+      {/* Timeline */}
       <div className="relative border-l-2 border-purple-500 ml-3 sm:ml-6 md:ml-20">
 
-        {/* Glow line effect */}
+        {/* Glow line */}
         <div className="absolute left-0 top-0 h-full w-[2px] bg-purple-400 blur-sm opacity-60 animate-pulse"></div>
 
         {educationData.map((item, index) => (
@@ -75,7 +67,7 @@ const Education = () => {
             className="mb-12 ml-4 sm:ml-6 relative group"
           >
 
-            {/* Timeline Dot */}
+            {/* Dot */}
             <div className="absolute -left-[10px] top-6 w-5 h-5 bg-purple-500 rounded-full shadow-lg border-4 border-gray-950 group-hover:scale-125 transition-all duration-300 animate-pulse"></div>
 
             {/* Card */}
