@@ -12,30 +12,38 @@ import {
 const projects = [
   {
     title: "Airbnb Clone",
-    description: "Full-stack Airbnb clone with authentication & booking system.",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+    description:
+      "Full-stack Airbnb clone with authentication & booking system.",
+    image:
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
     github: "https://github.com/su281/airbnb-project",
     live: "https://airbnb-project-six.vercel.app/",
     featured: true,
   },
+
   {
     title: "AI Chatbot",
     description: "AI chatbot using modern AI APIs.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995",
     github: "https://github.com/su281/ai-chatbot",
     live: "https://ai-chatbot-demo.vercel.app/",
   },
+
   {
-    title: "Student Grade System",
-    description: "System to manage and calculate student grades.",
-    image: "https://images.unsplash.com/photo-1588072432836-e10032774350",
-    github: "https://github.com/su281/Student-grade-",
-    live: "https://student-grade-system.vercel.app/",
+    title: "Portfolio Website",
+    description:
+      "Modern responsive personal portfolio website built using React, Tailwind CSS and Framer Motion.",
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    github: "https://github.com/su281",
+    live: "https://sunita-jais-portfolio.vercel.app/",
+    featured: true,
   },
 ];
 
 // ---------------- CARD ----------------
-const ProjectCard = ({ project, setSelected, dark }) => {
+const ProjectCard = ({ project, setSelected }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -45,16 +53,16 @@ const ProjectCard = ({ project, setSelected, dark }) => {
     >
       <Tilt glareEnable glareMaxOpacity={0.08} scale={1.03}>
         <div
-          className={`relative rounded-2xl overflow-hidden group 
-          ${dark ? "bg-gray-900 border-gray-700" : "bg-white border-gray-200"}
-          border shadow-sm hover:shadow-2xl hover:shadow-purple-400/30
-          transition-all duration-500`}
+          className="relative rounded-2xl overflow-hidden group 
+          bg-white border border-gray-200
+          shadow-sm hover:shadow-2xl hover:shadow-purple-400/30
+          transition-all duration-500"
         >
           {/* IMAGE */}
           <div className="relative overflow-hidden">
             <img
               src={project.image}
-              alt=""
+              alt={project.title}
               className="w-full h-44 sm:h-52 object-cover transform group-hover:scale-110 transition duration-700"
             />
 
@@ -85,19 +93,11 @@ const ProjectCard = ({ project, setSelected, dark }) => {
             onClick={() => setSelected(project)}
             className="p-4 cursor-pointer"
           >
-            <h3
-              className={`text-base sm:text-lg font-semibold ${
-                dark ? "text-white" : "text-gray-900"
-              } group-hover:text-purple-600`}
-            >
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-purple-600">
               {project.title}
             </h3>
 
-            <p
-              className={`text-xs sm:text-sm mt-2 ${
-                dark ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
+            <p className="text-xs sm:text-sm mt-2 text-gray-600">
               {project.description}
             </p>
           </div>
@@ -106,12 +106,17 @@ const ProjectCard = ({ project, setSelected, dark }) => {
           <div className="flex sm:hidden gap-3 px-4 pb-4">
             <a
               href={project.github}
+              target="_blank"
+              rel="noreferrer"
               className="px-3 py-2 bg-purple-600 text-white rounded text-xs w-full text-center"
             >
               Code
             </a>
+
             <a
               href={project.live}
+              target="_blank"
+              rel="noreferrer"
               className="px-3 py-2 bg-purple-500 text-white rounded text-xs w-full text-center"
             >
               Live
@@ -130,16 +135,12 @@ const ProjectCard = ({ project, setSelected, dark }) => {
 };
 
 // ---------------- MODAL ----------------
-const Modal = ({ project, setSelected, dark }) => {
+const Modal = ({ project, setSelected }) => {
   if (!project) return null;
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div
-        className={`rounded-2xl p-5 sm:p-6 max-w-lg w-full relative ${
-          dark ? "bg-gray-900 text-white" : "bg-white"
-        }`}
-      >
+      <div className="rounded-2xl p-5 sm:p-6 max-w-lg w-full relative bg-white">
         <button
           onClick={() => setSelected(null)}
           className="absolute top-3 right-3 text-gray-500 hover:text-purple-600"
@@ -147,7 +148,11 @@ const Modal = ({ project, setSelected, dark }) => {
           <FaTimes />
         </button>
 
-        <img src={project.image} alt="" className="rounded-xl mb-4" />
+        <img
+          src={project.image}
+          alt={project.title}
+          className="rounded-xl mb-4"
+        />
 
         <h2 className="text-xl sm:text-2xl font-semibold">
           {project.title}
@@ -185,7 +190,6 @@ const Modal = ({ project, setSelected, dark }) => {
 const Projects = () => {
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState("All");
-  const [dark, setDark] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -200,22 +204,10 @@ const Projects = () => {
       : projects.filter((p) => !p.featured);
 
   return (
-    <section
-      className={`min-h-screen pt-8 sm:pt-10 pb-14 px-3 sm:px-4 ${
-        dark ? "bg-black text-white" : "bg-gray-50"
-      }`}
-    >
-      {/* DARK MODE BUTTON */}
-      <button
-        onClick={() => setDark(!dark)}
-        className="fixed top-5 right-5 px-4 py-2 bg-purple-600 text-white rounded-full text-sm z-50"
-      >
-        {dark ? "Light ☀️" : "Dark 🌙"}
-      </button>
-
+    <section className="min-h-screen pt-8 sm:pt-10 pb-14 px-3 sm:px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
 
-        {/* HEADING WITH ANIMATION */}
+        {/* HEADING */}
         <div className="text-center mb-6 sm:mb-8 overflow-hidden">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold flex items-center justify-center gap-3 flex-wrap">
             <FaCode className="text-purple-600 text-xl sm:text-2xl md:text-3xl" />
@@ -230,13 +222,11 @@ const Projects = () => {
                   duration: 0.5,
                   delay: index * 0.3,
                 }}
-                className={`${
+                className={
                   word === "Made"
                     ? "text-purple-600"
-                    : dark
-                    ? "text-white"
                     : "text-black"
-                }`}
+                }
               >
                 {word}
               </motion.span>
@@ -253,8 +243,6 @@ const Projects = () => {
               className={`px-4 py-2 rounded-full text-xs sm:text-sm ${
                 filter === f
                   ? "bg-purple-600 text-white"
-                  : dark
-                  ? "bg-gray-800 text-gray-300 border border-gray-700"
                   : "bg-white border"
               }`}
             >
@@ -267,7 +255,10 @@ const Projects = () => {
         {loading ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="p-4 rounded-xl bg-white animate-pulse">
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-white animate-pulse"
+              >
                 <div className="h-40 bg-gray-300 rounded mb-4"></div>
                 <div className="h-4 bg-gray-300 w-3/4 mb-2"></div>
                 <div className="h-3 bg-gray-200 w-full"></div>
@@ -281,14 +272,13 @@ const Projects = () => {
                 key={i}
                 project={project}
                 setSelected={setSelected}
-                dark={dark}
               />
             ))}
           </div>
         )}
       </div>
 
-      <Modal project={selected} setSelected={setSelected} dark={dark} />
+      <Modal project={selected} setSelected={setSelected} />
     </section>
   );
 };
