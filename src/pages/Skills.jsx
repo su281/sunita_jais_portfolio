@@ -1,5 +1,9 @@
  import React from "react";
 import { motion } from "framer-motion";
+
+import { SiLeetcode } from "react-icons/si";
+import { FaBrain } from "react-icons/fa";
+
 import {
   FaHtml5,
   FaCss3Alt,
@@ -23,12 +27,14 @@ const skills = [
   { name: "HTML", icon: <FaHtml5 />, color: "text-orange-500" },
   { name: "CSS", icon: <FaCss3Alt />, color: "text-blue-500" },
   { name: "JavaScript", icon: <SiJavascript />, color: "text-yellow-400" },
-  { name: "React", icon: <FaReact />, color: "text-cyan-400" },
+  { name: "React.js", icon: <FaReact />, color: "text-cyan-400" },
   { name: "Node.js", icon: <FaNodeJs />, color: "text-green-500" },
   { name: "MongoDB", icon: <SiMongodb />, color: "text-green-600" },
   { name: "SQL", icon: <SiMysql />, color: "text-blue-600" },
   { name: "Tailwind", icon: <SiTailwindcss />, color: "text-sky-400" },
   { name: "Bootstrap", icon: <SiBootstrap />, color: "text-purple-500" },
+
+   // 
 
   // 👇 THESE WILL BE BOLD + DARK BLACK
   { name: "Java", icon: <FaJava />, color: "text-black font-bold" },
@@ -37,6 +43,9 @@ const skills = [
   { name: "C Language", icon: <FaJava />, color: "text-black font-bold" },
   { name: "Machine Learning", icon: <FaPython />, color: "text-black font-bold" },
   { name: "Linux", icon: <FaGithub />, color: "text-black font-bold" },
+
+  { name: "DSA", icon: <FaBrain />, color: "text-black font-bold" },
+{ name: "LeetCode", icon: <SiLeetcode />, color: "text-orange-500" },
 ];
 
 // ---------------- ANIMATION ----------------
@@ -146,4 +155,4 @@ const Skills = () => {
   );
 };
 
-export default Skills; 
+export default Skills;    
